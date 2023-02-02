@@ -27,6 +27,9 @@
 					<input class="form-control me-3" type="search" placeholder="Search"
 						aria-label="Search"> <a class="btn btn-outline-primary"
 						href="FoodIteme.jsp">FoodItems</a>
+						<a class="btn btn-outline-primary"
+						href="DeliveryBoy.jsp">DeliveryBoy</a>
+						
 				</form>
 			</div>
 		</nav>

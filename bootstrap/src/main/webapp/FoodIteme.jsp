@@ -38,7 +38,7 @@
 		<div>
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">Food
-					Name</label> <input type="text" " class="form-control"
+					Name</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="Enter your Food Name" name="name">
 			</div>
 
@@ -57,14 +57,15 @@
 		</div>
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="form-label">Price
-			</label> <input type="text" " class="form-control"
+			</label> <input type="text"  class="form-control"
 				id="exampleFormControlInput1" placeholder="Enter your Food price" name="price">
 		</div>
 		<div>
 			<input type="submit" class="btn btn-dark" value="Send" name="send" />
 
 		</div>
-</div>
+
 	</form>
+	</div>
 </body>
 </html>
