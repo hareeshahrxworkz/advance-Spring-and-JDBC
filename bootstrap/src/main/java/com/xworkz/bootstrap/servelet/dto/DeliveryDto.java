@@ -1,4 +1,4 @@
-package com.xworkz.bootstrap.servelet.dto;
+package com.xworkz.bootstrap.servelet.chat;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,20 +8,20 @@ import lombok.ToString;
 
 
 
-public class DeliveryDto {
+public class Deliverychat {
 
 	private String fname;
 	private String email;
 	private long mobile_NO;
 	private String gender;
 
-	public DeliveryDto() {
-		System.out.println("Running DeliveryDto");
+	public Deliverychat() {
+		System.out.println("Running Deliverychat");
 	}
 
 	@Override
 	public String toString() {
-		return "DeliveryDto [fname=" + fname + ", email=" + email + ", mobile_NO=" + mobile_NO + ", gender=" + gender
+		return "Deliverychat [fname=" + fname + ", email=" + email + ", mobile_NO=" + mobile_NO + ", gender=" + gender
 				+ "]";
 	}
 

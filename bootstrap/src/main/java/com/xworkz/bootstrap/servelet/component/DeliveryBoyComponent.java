@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.xworkz.bootstrap.servelet.dto.DeliveryDto;
+import com.xworkz.bootstrap.servelet.chat.Deliverychat;
 
 @Component
 @RequestMapping("/delivery")
@@ -16,10 +16,10 @@ public class DeliveryBoyComponent {
 
 	@PostMapping
 
-	public String getData(DeliveryDto deliveryDto) {
+	public String getData(Deliverychat deliverychat) {
 
 		System.out.println("Running Get Data");
-		System.out.println(deliveryDto.toString());
+		System.out.println(deliverychat.toString());
 		return "sending.jsp";
 	}
 	

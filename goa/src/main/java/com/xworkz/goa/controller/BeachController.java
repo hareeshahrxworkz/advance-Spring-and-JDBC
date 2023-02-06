@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.xworkz.goa.dto.BeachDTO;
+import com.xworkz.goa.chat.Beachchat;
 
 @Component
 @RequestMapping("/beach")
@@ -17,12 +17,12 @@ public class BeachController {
 	}
 
 	@PostMapping
-	public String beachController(BeachDTO beachDTO, Model model) {
-		System.out.println("Running :" + beachDTO);
-		model.addAttribute("name", beachDTO.getName());
-		model.addAttribute("location", beachDTO.getLocation());
-		model.addAttribute("clean", beachDTO.getClean());
-		model.addAttribute("game", beachDTO.getGame());
+	public String beachController(Beachchat beachchat, Model model) {
+		System.out.println("Running :" + beachchat);
+		model.addAttribute("name", beachchat.getName());
+		model.addAttribute("location", beachchat.getLocation());
+		model.addAttribute("clean", beachchat.getClean());
+		model.addAttribute("game", beachchat.getGame());
 
 		return "BeachSucess.jsp";
 	}

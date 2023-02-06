@@ -1,19 +1,19 @@
-package com.xworkz.goa.dto;
+package com.xworkz.goa.chat;
 
-public class BeachDTO {
+public class Beachchat {
 
 	private String name;
 	private String location;
 	private String clean;
 	private String game;
 
-	public BeachDTO() {
+	public Beachchat() {
 		System.out.println("running : " + getClass().getSimpleName());
 	}
 
 	@Override
 	public String toString() {
-		return "BeachDTO [name=" + name + ", location=" + location + ", clean=" + clean + ", game=" + game + "]";
+		return "Beachchat [name=" + name + ", location=" + location + ", clean=" + clean + ", game=" + game + "]";
 	}
 
 	public String getName() {
