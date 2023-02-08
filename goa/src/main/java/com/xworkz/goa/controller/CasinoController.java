@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.xworkz.goa.chat.Casinochat;
+import com.xworkz.goa.dto.CasinoDTO;
 
 @Component
 @RequestMapping("/casino")
@@ -15,7 +15,8 @@ public class CasinoController {
 	}
 
 	@PostMapping
-	public String casinoController(Casinochat casinochat, Model model) {
+
+	public String casinoController(CasinoDTO casinochat, Model model) {
 		System.out.println("Running Casino" + casinochat);
 		model.addAttribute("name", casinochat.getName());
 		model.addAttribute("cruise", casinochat.getCruise());

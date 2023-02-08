@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.xworkz.goa.chat.Beachchat;
+import com.xworkz.goa.dto.BeachDTO;
 
 @Component
 @RequestMapping("/beach")
@@ -17,7 +17,7 @@ public class BeachController {
 	}
 
 	@PostMapping
-	public String beachController(Beachchat beachchat, Model model) {
+	public String beachController(BeachDTO beachchat, Model model) {
 		System.out.println("Running :" + beachchat);
 		model.addAttribute("name", beachchat.getName());
 		model.addAttribute("location", beachchat.getLocation());

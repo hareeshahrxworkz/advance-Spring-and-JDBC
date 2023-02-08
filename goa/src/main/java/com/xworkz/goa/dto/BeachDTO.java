@@ -1,13 +1,13 @@
-package com.xworkz.goa.chat;
+package com.xworkz.goa.dto;
 
-public class Beachchat {
+public class BeachDTO{
 
 	private String name;
 	private String location;
 	private String clean;
 	private String game;
 
-	public Beachchat() {
+	public BeachDTO() {
 		System.out.println("running : " + getClass().getSimpleName());
 	}
 

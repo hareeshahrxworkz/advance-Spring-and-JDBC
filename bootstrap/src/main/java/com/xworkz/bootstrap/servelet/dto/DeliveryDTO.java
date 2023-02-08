@@ -1,4 +1,4 @@
-package com.xworkz.bootstrap.servelet.chat;
+package com.xworkz.bootstrap.servelet.dto;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import lombok.ToString;
 
 
 
-public class Deliverychat {
+public class DeliveryDTO{
 
 	private String fname;
 	private String email;
 	private long mobile_NO;
 	private String gender;
 
-	public Deliverychat() {
+	public DeliveryDTO() {
 		System.out.println("Running Deliverychat");
 	}
 

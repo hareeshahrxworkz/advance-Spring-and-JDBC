@@ -1,6 +1,6 @@
-package com.xworkz.goa.chat;
+package com.xworkz.goa.dto;
 
-public class Casinochat {
+public class CasinoDTO{
 
 	private String name;
 	private String cruise;
@@ -8,7 +8,7 @@ public class Casinochat {
 	private String food;
 	private String alcohol;
 
-	public Casinochat() {
+	public CasinoDTO() {
 		System.out.println("Running : " + getClass().getSimpleName());
 	}
 
