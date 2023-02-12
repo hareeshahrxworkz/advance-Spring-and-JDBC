@@ -6,4 +6,6 @@ public interface BekaryService {
 
 	boolean validateAndSave(BekaryDTO bekaryDTO);
 
+	
+	
 }

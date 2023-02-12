@@ -1,11 +1,27 @@
 package com.xworkz.bekary.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "bekary_table")
 public class BekaryDTO {
+	@Column(name = "id")
+	@Id
+	private int id;
+	@Column(name = "b_name")
 	private String bekary;
+	@Column(name = "b_owneName")
 	private String owner;
+	@Column(name = "b_wifeName")
 	private String wife;
+	@Column(name = "b_marrid")
 	private boolean married;
+	@Column(name = "b_famous")
 	private String famous;
+	@Column(name = "b_since")
 	private int since;
 
 	public BekaryDTO() {

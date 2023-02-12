@@ -3,6 +3,7 @@ package com.xworkz.bekary.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -20,6 +21,11 @@ public class BekaryConfiguration {
 		resolver.setPrefix("/");
 		resolver.setSuffix(".jsp");
 		return resolver;
+	}
+
+	@Bean
+	LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
+		return new LocalContainerEntityManagerFactoryBean();
 	}
 
 }
