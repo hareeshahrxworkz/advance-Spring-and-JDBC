@@ -9,8 +9,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @ComponentScan("com.xworkz")
-public class HotelApplicationConfiguration {
-	public HotelApplicationConfiguration() {
+public class HotelApplicationConfiguratio {
+	public HotelApplicationConfiguratio() {
 		System.out.println("Running HotelApplicationConfiguration");
 	}
 

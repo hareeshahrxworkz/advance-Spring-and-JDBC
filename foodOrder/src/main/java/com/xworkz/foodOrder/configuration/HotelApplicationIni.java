@@ -4,7 +4,7 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class HotelApplicationInit extends AbstractAnnotationConfigDispatcherServletInitializer
+public class HotelApplicationIni extends AbstractAnnotationConfigDispatcherServletInitializer
 		implements WebMvcConfigurer {
 
 	@Override
@@ -16,7 +16,7 @@ public class HotelApplicationInit extends AbstractAnnotationConfigDispatcherServ
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		System.out.println("Running getServletConfigClasses");
-		return new Class[] { HotelApplicationConfiguration.class };
+		return new Class[] { HotelApplicationConfiguratio.class };
 	}
 
 	@Override

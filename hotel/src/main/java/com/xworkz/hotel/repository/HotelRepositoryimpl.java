@@ -17,9 +17,7 @@ import com.xworkz.hotel.dto.OrderDTO;
 @Repository
 public class HotelRepositoryimpl implements HotelRepository {
 	@Autowired
-	private LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean;
-	
-	@PersistenceUnit
+
 	private EntityManagerFactory entityManagerFactory;
 
 	public HotelRepositoryimpl() {
@@ -36,7 +34,7 @@ public class HotelRepositoryimpl implements HotelRepository {
 		transaction.commit();
 		entityManager.close();
 		System.out.println(dto);
-		return false;
+		return true;
 	}
 
 }

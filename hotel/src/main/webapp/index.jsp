@@ -26,6 +26,7 @@
 				<form class="d-flex">
 					<input class="form-control me-3" type="search" placeholder="Search"
 						aria-label="Search">
+						<a href="Cm.jsp" class="btn btn-primary"> CMDTO</a>
 
 
 				</form>
@@ -70,7 +71,6 @@
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
-					<option>4</option>
 					<option>4</option>
 					<option>5</option>
 					<option>6</option>
