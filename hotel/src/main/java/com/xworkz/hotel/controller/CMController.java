@@ -23,9 +23,12 @@ public class CMController {
 		System.out.println("Controller Running");
 		Set<ConstraintViolation<CMDTO>> constraintViolations = cmService.ValidateAndSave(cmdto);
 		if (!constraintViolations.isEmpty()) {
-			System.out.println("is not empty validation error");
+			System.out.println("Validation failed, displaying error message");
 			constraintViolations.forEach(e -> System.out.println(e.getMessage()));
 
+		}
+		else {
+			System.out.println("Validation success, display success message..");
 		}
 
 		return "Display";
