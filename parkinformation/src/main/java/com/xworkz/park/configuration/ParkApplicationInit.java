@@ -1,26 +1,27 @@
-package com.xworkz.hotel.configuration;
+
+package com.xworkz.park.configuration;
 
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class HotelApplicationInit extends AbstractAnnotationConfigDispatcherServletInitializer
+public class ParkApplicationInit extends AbstractAnnotationConfigDispatcherServletInitializer
 		implements WebMvcConfigurer {
 
-	public HotelApplicationInit() {
-		System.out.println("Running HotelApplicationInit");
+	public ParkApplicationInit() {
+		System.out.println("Running ParkApplicationInit");
 	}
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println("running getRootConfigClasses");
+		System.out.println("Running getRootConfigClasses");
 		return null;
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		System.out.println("running getServletConfigClasses");
-		return new Class[] { HotelApplicationConfiguration.class };
+		System.out.println("Running getRootConfigClasses");
+		return new Class[] { ParkConfiguration.class };
 	}
 
 	@Override
