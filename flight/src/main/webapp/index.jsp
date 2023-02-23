@@ -30,6 +30,7 @@
 
 
 				</form>
+
 			</div>
 		</nav>
 	</div>
@@ -50,6 +51,16 @@
 	<br> country
 	<span>${dto.country}</span>
 	<br>
+	<form class="d-flex" action="delete" method="get">
+
+		<input class="form-control me-3" type="text" placeholder="Delete"
+			aria-label="Search" name="id"> <input type="submit"
+			value="Delete">
+	</form>
+
+	Deleted DATA:::
+	<span>${dto}</span>
+	<span>${error}</span>
 
 
 </body>

@@ -40,4 +40,24 @@ public class FlightRepositoryImpl implements FlightRepository {
 		return find;
 	}
 
+	@Override
+	public FlightEntity delete(int id) {
+
+		System.out.println("Running Delete Repository");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityTransaction transaction = entityManager.getTransaction();
+		FlightEntity entity = entityManager.find(FlightEntity.class, id);
+		if (entity != null) {
+			transaction.begin();
+			entityManager.remove(entity);
+			transaction.commit();
+			entityManager.close();
+			return entity;
+		}
+		else {
+			return null;
+		}
+
+	}
+
 }

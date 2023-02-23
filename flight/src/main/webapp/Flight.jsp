@@ -30,9 +30,8 @@
 						aria-label="Search" name="id"> <input type="submit"
 						value="Search"> <a href="index.jsp"
 						class="btn btn-primary">Home</a>
-
-
 				</form>
+				
 			</div>
 		</nav>
 	</div>

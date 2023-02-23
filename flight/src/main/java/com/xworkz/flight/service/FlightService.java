@@ -10,8 +10,6 @@ public interface FlightService {
 	Set<ConstraintViolation<FlightDTO>> validateandSave(FlightDTO dto);
 
 	FlightDTO onFindBy(int id);
-	
-	
-	
 
+	FlightDTO onDelete(int id);
 }

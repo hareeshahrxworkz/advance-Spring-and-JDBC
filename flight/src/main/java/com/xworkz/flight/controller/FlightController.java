@@ -83,9 +83,21 @@ public class FlightController {
 		System.out.println("Find Is Running");
 		FlightDTO dto = flightService.onFindBy(id);
 		if (dto != null) {
-			model.addAttribute("dto",dto);
+			model.addAttribute("dto", dto);
 		} else {
 			model.addAttribute("nu", "Does not find Records in the database");
+		}
+		return "index";
+	}
+
+	@GetMapping("/delete")
+	public String onDelete(@RequestParam int id, Model model) {
+		FlightDTO dto = flightService.onDelete(id);
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+
+		} else {
+			model.addAttribute("error", "Data is not present do not delete record");
 		}
 		return "index";
 	}

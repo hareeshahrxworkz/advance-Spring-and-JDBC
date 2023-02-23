@@ -60,4 +60,20 @@ public class FlightServiceImpl implements FlightService {
 		return null;
 	}
 
+	@Override
+	public FlightDTO onDelete(int id) {
+		System.out.println("Running Service DElete");
+		FlightEntity entity = flightRepository.delete(id);
+		if (entity!=null) {
+			FlightDTO dto = new FlightDTO();
+			dto.setCost(entity.getCost());
+			dto.setCountry(entity.getCountry());
+			dto.setFname(entity.getFname());
+			dto.setName(entity.getName());
+			dto.setType(entity.getType());
+			return dto;
+		}
+		return null;
+	}
+
 }

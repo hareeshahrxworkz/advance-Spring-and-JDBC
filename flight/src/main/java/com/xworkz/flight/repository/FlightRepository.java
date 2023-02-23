@@ -8,4 +8,6 @@ public interface FlightRepository {
 
 	FlightEntity findByID(int id);
 
+	FlightEntity delete(int id);
+
 }
