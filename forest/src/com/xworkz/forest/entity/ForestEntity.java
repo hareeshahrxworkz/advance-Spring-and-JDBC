@@ -24,7 +24,7 @@ import lombok.ToString;
 @NamedQuery(name = "findidAndname", query = ("select for.id from ForestEntity for where for.name='Sundarbans' and for.state='Karnataka'"))
 @NamedQuery(name = "findNameByID", query = ("select for.name from ForestEntity for where id=1"))
 @NamedQuery(name = "findCount", query = ("select count(for.id) from ForestEntity for "))
-@NamedQuery(name = "maxArea", query = ("select Max(for.id) from ForestEntity for where area='Karnataka'"))
+@NamedQuery(name = "maxArea", query = ("select Max(for.id) from ForestEntity for "))
 public class ForestEntity {
 	@Id
 	@Column(name = "id")
