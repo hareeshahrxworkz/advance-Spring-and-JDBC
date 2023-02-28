@@ -1,11 +1,26 @@
 package com.xworkz.hareeshaxworkz.repository;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import com.xworkz.hareeshaxworkz.dto.HareeshaDTO;
 import com.xworkz.hareeshaxworkz.entity.HareeshaEntity;
 
 public interface GameRepository {
 
 	boolean save(HareeshaEntity entity);
 
-	HareeshaEntity find(int id);
+	List<HareeshaEntity> find(String all);
+
+	default List<HareeshaEntity> Byname(String name) {
+
+		return Collections.emptyList();
+
+	}
+
+	default HareeshaEntity onDelete(int id) {
+		return null;
+	}
 
 }

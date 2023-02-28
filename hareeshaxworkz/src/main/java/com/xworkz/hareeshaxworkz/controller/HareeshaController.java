@@ -25,6 +25,7 @@ import com.xworkz.hareeshaxworkz.service.GameService;
 @Controller
 @RequestMapping("/")
 public class HareeshaController {
+	private String name;
 	@Autowired
 	private GameRepository gameRepository;
 	@Autowired
@@ -68,7 +69,7 @@ public class HareeshaController {
 			entity.setWepon(dto.getWepon());
 			boolean save = gameRepository.save(entity);
 			System.out.println(save);
-
+			model.addAttribute("save", "Data Save Sucessfully");
 			return "GameRegister";
 
 		}
@@ -81,22 +82,50 @@ public class HareeshaController {
 
 	@GetMapping("find")
 
-	public String find(Model model, @RequestParam int id) {
+	public String findAll(Model model, @RequestParam String All) {
 		System.out.println("Running fing method");
-	
-			HareeshaDTO dto = gameService.find(id);
-			if (dto != null) {
-				model.addAttribute("dto", dto);
-				return "index";
-			} else {
 
-				model.addAttribute("err", "Dto is null cannot find game Detiles");
+		List<HareeshaDTO> list = gameService.find(All);
 
-				model.addAttribute("dto", dto);
-				return "index";
-			}
-		} 
+		if (list != null && !list.isEmpty()) {
+			model.addAttribute("list", list);
 
-	
+			return "findByname";
+		} else {
+			System.out.println("data is not found");
+			model.addAttribute("err", "Data Is not Found");
+			return "index";
+		}
 
+	}
+
+	@GetMapping("findByName")
+
+	public String find(Model model, @RequestParam String name) {
+		System.out.println("Running findby name method");
+		List<HareeshaDTO> list = gameService.Byname(name);
+
+		if (list != null && !list.isEmpty()) {
+			model.addAttribute("list", list);
+
+			return "findByname";
+		} else {
+			System.out.println("data is not found");
+			model.addAttribute("err", "Data Is not Found");
+			return "findByname";
+		}
+
+	}
+
+	@GetMapping("/delete")
+
+	public String onDelete(Model model, @RequestParam int de) {
+		System.out.println("On delete Running");
+		System.out.println("deleting ........................" + de);
+		HareeshaDTO dto = gameService.onDelete(de);
+		model.addAttribute("delete", dto);
+		model.addAttribute("msg", "Data deleted sucessfully");
+
+		return "delete";
+	}
 }

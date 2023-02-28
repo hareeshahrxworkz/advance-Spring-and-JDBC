@@ -17,6 +17,7 @@ import lombok.ToString;
 @Getter
 
 public class HareeshaDTO {
+	private int id;
 	@NotNull(message = "Not Blank Name")
 	@Size(min = 3, max = 20, message = "Name must be min 3 maxmium 20")
 	private String name;

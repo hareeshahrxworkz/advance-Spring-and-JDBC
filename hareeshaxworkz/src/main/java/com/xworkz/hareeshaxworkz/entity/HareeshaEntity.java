@@ -3,6 +3,7 @@ package com.xworkz.hareeshaxworkz.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -16,6 +17,13 @@ import lombok.ToString;
 @Getter
 @Entity
 @Table(name = "game")
+@NamedQuery(name = "findByName", query = "select entity from HareeshaEntity entity where entity.name=:by")
+@NamedQuery(name = "findById", query = "select entity from HareeshaEntity entity where entity.id=:byid")
+@NamedQuery(name = "findByonline", query = "select entity from HareeshaEntity entity where entity.online=:byonline")
+@NamedQuery(name = "findByNoOfLevels", query = "select entity from HareeshaEntity entity where entity.NoOfLevels=:byNoOfLevels")
+@NamedQuery(name = "findByWepon", query = "select entity from HareeshaEntity entity where entity.Wepon=:byWepon")
+@NamedQuery(name = "findAll", query = "select entity from HareeshaEntity entity ")
+
 public class HareeshaEntity {
 	@Id
 	@Column(name = "id")

@@ -1,6 +1,8 @@
 package com.xworkz.hareeshaxworkz.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -42,13 +44,69 @@ public class GameServiceImpl implements GameService {
 	}
 
 	@Override
-	public HareeshaDTO find(int id) {
+	public List<HareeshaDTO> find(String all) {
 		System.out.println("Running find method");
-		HareeshaDTO dto = new HareeshaDTO();
-		HareeshaEntity entity = gameRepository.find(id);
+		List<HareeshaEntity> lists = gameRepository.find(all);
 
-		System.out.println(entity);
+		if (lists != null && !lists.isEmpty()) {
+			List<HareeshaDTO> dtos = new ArrayList<HareeshaDTO>();
+			for (HareeshaEntity entity : lists) {
+
+				HareeshaDTO dto = new HareeshaDTO();
+				dto.setId(entity.getId());
+				dto.setName(entity.getName());
+				dto.setNoOfLevels(entity.getNoOfLevels());
+				dto.setOnline(entity.getOnline());
+				dto.setPlayars(entity.getPlayars());
+				dto.setType(entity.getType());
+				dto.setWepon(entity.getWepon());
+				dtos.add(dto);
+			}
+			return dtos;
+
+		} else {
+			System.out.println("Dto is nulll");
+			return GameService.super.Byname(all);
+
+		}
+	}
+
+	@Override
+	public List<HareeshaDTO> Byname(String name) {
+
+		List<HareeshaEntity> lists = gameRepository.Byname(name);
+
+		if (lists != null && !lists.isEmpty()) {
+			List<HareeshaDTO> dtos = new ArrayList<HareeshaDTO>();
+			for (HareeshaEntity entity : lists) {
+
+				HareeshaDTO dto = new HareeshaDTO();
+				dto.setId(entity.getId());
+				dto.setName(entity.getName());
+				dto.setNoOfLevels(entity.getNoOfLevels());
+				dto.setOnline(entity.getOnline());
+				dto.setPlayars(entity.getPlayars());
+				dto.setType(entity.getType());
+				dto.setWepon(entity.getWepon());
+				dtos.add(dto);
+			}
+			return dtos;
+
+		} else {
+			System.out.println("Dto is nulll");
+			return GameService.super.Byname(name);
+
+		}
+	}
+
+	@Override
+	public HareeshaDTO onDelete(int id) {
+
+		HareeshaEntity entity = gameRepository.onDelete(id);
 		if (entity != null) {
+
+			HareeshaDTO dto = new HareeshaDTO();
+			dto.setId(entity.getId());
 			dto.setName(entity.getName());
 			dto.setNoOfLevels(entity.getNoOfLevels());
 			dto.setOnline(entity.getOnline());
@@ -56,8 +114,9 @@ public class GameServiceImpl implements GameService {
 			dto.setType(entity.getType());
 			dto.setWepon(entity.getWepon());
 			return dto;
+
 		} else {
-			return null;
+			return GameService.super.onDelete(id);
 		}
 	}
 
