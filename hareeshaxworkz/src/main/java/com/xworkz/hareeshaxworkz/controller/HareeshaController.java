@@ -40,7 +40,7 @@ public class HareeshaController {
 		System.out.println("Running " + getClass().getSimpleName());
 	}
 
-	@GetMapping("/game")
+	@GetMapping("game")
 	public String onGame(Model model) {
 		System.out.println("Running on get Game");
 		model.addAttribute("online", online);
@@ -51,7 +51,7 @@ public class HareeshaController {
 	}
 
 	@PostMapping("/game")
-	public String onGame(Model model, HareeshaDTO dto) {
+	public String onUpdate(Model model, HareeshaDTO dto) {
 		System.out.println("Running on post Game");
 		model.addAttribute("online", online);
 		model.addAttribute("levels", levels);
@@ -67,6 +67,7 @@ public class HareeshaController {
 			entity.setPlayars(dto.getPlayars());
 			entity.setType(dto.getType());
 			entity.setWepon(dto.getWepon());
+			entity.setId(dto.getId());
 			boolean save = gameRepository.save(entity);
 			System.out.println(save);
 			model.addAttribute("save", "Data Save Sucessfully");
@@ -80,7 +81,7 @@ public class HareeshaController {
 		}
 	}
 
-	@GetMapping("find")
+	@GetMapping("/find")
 
 	public String findAll(Model model, @RequestParam String All) {
 		System.out.println("Running fing method");
@@ -99,7 +100,7 @@ public class HareeshaController {
 
 	}
 
-	@GetMapping("findByName")
+	@GetMapping("/findByName")
 
 	public String find(Model model, @RequestParam String name) {
 		System.out.println("Running findby name method");
@@ -128,4 +129,54 @@ public class HareeshaController {
 
 		return "delete";
 	}
+
+	@GetMapping("/update")
+
+	public String onUpdate(Model model, @RequestParam int up) {
+		System.out.println("On Update Running");
+		model.addAttribute("online", online);
+		model.addAttribute("levels", levels);
+		model.addAttribute("playars", playars);
+		HareeshaDTO dto = gameService.onFind(up);
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+
+		} else {
+			model.addAttribute("msg", "Data deleted sucessfully");
+		}
+		return "update";
+	}
+
+	@PostMapping("/update")
+	public String onGame(Model model, HareeshaDTO dto) {
+		System.out.println("Running on post Game");
+		model.addAttribute("online", online);
+		model.addAttribute("levels", levels);
+		model.addAttribute("playars", playars);
+		model.addAttribute("dto", dto);
+		Set<ConstraintViolation<HareeshaDTO>> violations = gameService.validateAndSave(dto);
+		if (violations.isEmpty()) {
+			System.out.println("vilioations is not there ");
+			HareeshaEntity entity = new HareeshaEntity();
+			entity.setName(dto.getName());
+			entity.setNoOfLevels(dto.getNoOfLevels());
+			entity.setOnline(dto.getOnline());
+			entity.setPlayars(dto.getPlayars());
+			entity.setType(dto.getType());
+			entity.setWepon(dto.getWepon());
+			entity.setId(dto.getId());
+			System.out.println(entity);
+			boolean save = gameRepository.onUpdate(entity);
+			System.out.println(save);
+			model.addAttribute("save", "Update Sucess......");
+			return "update";
+
+		}
+
+		else {
+			model.addAttribute("error", violations);
+			return "update";
+		}
+	}
+
 }

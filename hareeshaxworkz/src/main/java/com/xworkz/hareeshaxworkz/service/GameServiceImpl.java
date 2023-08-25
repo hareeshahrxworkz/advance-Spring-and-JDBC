@@ -120,4 +120,25 @@ public class GameServiceImpl implements GameService {
 		}
 	}
 
+	@Override
+	public HareeshaDTO onFind(int id) {
+
+		HareeshaEntity entity = gameRepository.onFind(id);
+		if (entity != null) {
+
+			HareeshaDTO dto = new HareeshaDTO();
+			dto.setId(entity.getId());
+			dto.setName(entity.getName());
+			dto.setNoOfLevels(entity.getNoOfLevels());
+			dto.setOnline(entity.getOnline());
+			dto.setPlayars(entity.getPlayars());
+			dto.setType(entity.getType());
+			dto.setWepon(entity.getWepon());
+			return dto;
+
+		} else {
+			return GameService.super.onFind(id);
+		}
+	}
+
 }

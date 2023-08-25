@@ -23,4 +23,12 @@ public interface GameRepository {
 		return null;
 	}
 
+	default HareeshaEntity onFind(int id) {
+		return null;
+	}
+
+	default boolean onUpdate(HareeshaEntity entity) {
+		return true;
+	}
+
 }

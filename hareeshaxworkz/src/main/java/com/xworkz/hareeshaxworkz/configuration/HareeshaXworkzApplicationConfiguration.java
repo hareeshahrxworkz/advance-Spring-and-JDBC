@@ -14,6 +14,7 @@ public class HareeshaXworkzApplicationConfiguration {
 		System.out.println("Running " + getClass().getSimpleName());
 	}
 
+	
 	@Bean
 	public ViewResolver resolver() {
 		System.out.println("register view Resolver");

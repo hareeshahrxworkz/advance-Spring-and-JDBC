@@ -21,7 +21,10 @@ import lombok.ToString;
 @NamedQuery(name = "findById", query = "select entity from HareeshaEntity entity where entity.id=:byid")
 @NamedQuery(name = "findByonline", query = "select entity from HareeshaEntity entity where entity.online=:byonline")
 @NamedQuery(name = "findByNoOfLevels", query = "select entity from HareeshaEntity entity where entity.NoOfLevels=:byNoOfLevels")
+@NamedQuery(name = "findBytype", query = "select entity from HareeshaEntity entity where entity.type=:bytype")
 @NamedQuery(name = "findByWepon", query = "select entity from HareeshaEntity entity where entity.Wepon=:byWepon")
+//@NamedQuery(name = "findByletter", query = "select entity from HareeshaEntity entity where entity.name like %bylet%")
+
 @NamedQuery(name = "findAll", query = "select entity from HareeshaEntity entity ")
 
 public class HareeshaEntity {

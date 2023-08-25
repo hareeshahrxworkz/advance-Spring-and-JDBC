@@ -37,6 +37,15 @@ public class GameRepositoryimpl implements GameRepository {
 	}
 
 	@Override
+	public HareeshaEntity onFind(int id) {
+
+		EntityManager manager = entityManagerFactory.createEntityManager();
+		HareeshaEntity entity = manager.find(HareeshaEntity.class, id);
+		manager.close();
+		return entity;
+	}
+
+	@Override
 	public List<HareeshaEntity> find(String all) {
 
 		EntityManager manager = entityManagerFactory.createEntityManager();
@@ -117,10 +126,31 @@ public class GameRepositoryimpl implements GameRepository {
 							List<HareeshaEntity> list4 = query4.getResultList();
 							if (!list4.isEmpty()) {
 								return list4;
-							}
+							} else if (name != null) {
 
-							else {
-								return GameRepository.super.Byname(name);
+								Query query5 = manager.createNamedQuery("findBytype");
+
+								query5.setParameter("bytype", name);
+
+								List<HareeshaEntity> list5 = query5.getResultList();
+								if (!list5.isEmpty()) {
+									return list5;
+								} else if (name != null) {
+
+									Query query6 = manager.createNamedQuery("findByletter");
+
+									query6.setParameter("bylet", name);
+
+									List<HareeshaEntity> list6 = query6.getResultList();
+									if (!list5.isEmpty()) {
+										return list6;
+									}
+
+									else {
+										return GameRepository.super.Byname(name);
+
+									}
+								}
 
 							}
 						}
@@ -128,7 +158,6 @@ public class GameRepositoryimpl implements GameRepository {
 					}
 
 				}
-
 			}
 
 		} finally {
@@ -153,6 +182,20 @@ public class GameRepositoryimpl implements GameRepository {
 			return GameRepository.super.onDelete(id);
 
 		}
+	}
+
+	@Override
+	public boolean onUpdate(HareeshaEntity entity) {
+		EntityManager manager = entityManagerFactory.createEntityManager();
+
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		manager.merge(entity);
+		transaction.commit();
+		System.out.println(entity);
+		manager.close();
+
+		return true;
 	}
 
 }

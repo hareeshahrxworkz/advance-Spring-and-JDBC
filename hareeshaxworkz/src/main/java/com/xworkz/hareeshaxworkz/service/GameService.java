@@ -21,6 +21,10 @@ public interface GameService {
 
 	}
 
+	default HareeshaDTO onFind(int id) {
+		return null;
+	}
+
 	default HareeshaDTO onDelete(int id) {
 		return null;
 	}

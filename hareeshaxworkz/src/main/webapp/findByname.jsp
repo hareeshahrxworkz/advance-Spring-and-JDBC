@@ -53,6 +53,10 @@
 		<table class="table caption-top">
 			<caption>Display Detiles of finding Game</caption>
 			<thead>
+				<form class="d-flex" action="findByName" method="get">
+					<input class="form-control me-3" type="text" placeholder="Search"
+						aria-label="Search" name="name">
+				</form>
 				<tr>
 					<th scope="col">id</th>
 					<th scope="col">Name</th>
@@ -61,7 +65,9 @@
 					<th scope="col">NoOfLevels</th>
 					<th scope="col">Wepon</th>
 					<th scope="col">PlayingMood</th>
-					<th scope="col">Delete/Modify</th>
+					<th scope="col">Delete</th>
+					<th scope="col">Update</th>
+
 
 
 
@@ -77,17 +83,22 @@
 						<td>${p.getNoOfLevels()}</td>
 						<td>${p.getWepon()}</td>
 						<td>${p.online}</td>
-						<form action="delete" method="get">
-						<td><button value="${p.id}" name="de" href="delete"
-								class="btn btn-primary">Delete</button></td>
-						</form>
+						<td><form action="delete" method="get">
+								<button value="${p.id}" name="de" href="delete"
+									class="btn btn-primary">Delete</button>
+							</form></td>
 
+						<td><form action="update" method="get">
+								<button value="${p.id}" name="up" href="update"
+									class="btn btn-primary">Update</button>
+							</form></td>
 					</tr>
 				</c:forEach>
 
 
 			</tbody>
 		</table>
+		<a href="index.jsp" class="btn btn-primary"> Back</a>
 
 	</div>
 </body>

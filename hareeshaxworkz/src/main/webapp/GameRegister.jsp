@@ -106,8 +106,10 @@
 							id="formGroupExampleInput" placeholder="Enter Game Wepon"
 							name="Wepon" />
 					</div>
-					<div class="d-grid gap-2 col-2 mx-auto">
-						<input type="submit" value="ClickHere" class="btn btn-warning" />
+					<div class="d-grid gap-2 d-md-block">
+						<input type="submit" value="Register Here" class="btn btn-warning" />
+						<a href="index.jsp" class="btn btn-warning"> Back</a>
+
 					</div>
 
 				</form>
